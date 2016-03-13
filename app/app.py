@@ -1,6 +1,10 @@
 import os
 from bottle import *
 from bottle import request as req
+import json
+
+# local import
+from qr_code_dementia import *
 
 @route('/')
 def index(section='home'):
@@ -20,9 +24,43 @@ def bower_files(filepath):
 
 @post('/make-qr')
 def make_qr():
-	name = req.POST.get('name')
-	emergency_contact = req.POST.get('emergencyContact')
-	return 'data'
+	name = str(req.POST.get('name'))
+	emergency_contact = str(req.POST.get('emergencyContact'))
+
+	generate(name, emergency_contact)
+	save_in_db(name, emergency_contact)
+
+	return json.dumps({
+		'res' : [name, emergency_contact]
+		})
+
+@get('/goto-make-qr')
+def goto_make_qr():
+	return template('make_qr')
+
+@get('/<query>')
+def get_info(query):
+
+	query = query.split(".")	
+
+	name = str(query[0])
+	emergency_contact = str(query[1])
+
+	print 'emergency_contact'
+	print emergency_contact
+	print 'name'
+	print name
+
+	atuk = get_atuk(name, emergency_contact)
+	if atuk==None:
+		return template('get_info', name=None, contact=None)
+	try:
+		del atuk['_id']
+	except KeyError:
+		pass
+
+	return template('get_info', name=name, contact=emergency_contact)
+	# return json.dumps(atuk)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 1337))
