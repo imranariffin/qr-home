@@ -18,7 +18,8 @@ def generate(name, contact):
 		box_size=10,
 		border=4,
 		)
-	strinput = "localhost:1337/" + name + "." + contact
+	# strinput = "localhost:1337/" + name + "." + contact
+	strinput = "http://qr-home.herokuapp.com/" + name + "." + contact
 
 	qr.add_data(strinput)
 	img = qr.make_image()
