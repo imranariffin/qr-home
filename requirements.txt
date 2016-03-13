@@ -1,4 +1,4 @@
 bottle==0.12.7
 qrcode==5.1
 pymongo==3.2.1
-pil
+pillow
