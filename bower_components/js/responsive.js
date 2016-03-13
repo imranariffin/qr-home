@@ -5,10 +5,11 @@ $(function (){
 	        url: "/make-qr",
 	        data: {
 	        	'name': $("#name").val(),
-	        	'contact' : $("#contact").val()
+	        	'emergencyContact' : $("#emergencyContact").val()
 	        },
-	        success: function(data) {
-	                console.log(data);
+	        success: function(res) {
+	                console.log(res);
+	                $('#showqr').show();
 	        },
 	        dataType: 'json'
 		});

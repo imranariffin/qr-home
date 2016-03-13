@@ -33,7 +33,7 @@
             <p class="lead">
 <!--                 <img src="static/img/yeoman.png" alt="I'm Yeoman"><br>
                 Always a pleasure scaffolding your apps. -->
-<!--         <br>
+        <br>
         <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">@</span>
           <input id="name" type="text" name="name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1">
@@ -43,10 +43,10 @@
           <span class="input-group-addon" id="basic-addon1">@</span>
           <input id="emergencyContact" type="text" name="emergencyContact" class="form-control" placeholder="Contact Number" aria-describedby="basic-addon1">
         </div>
-        <br> -->
+        <br>
         <img id="showqr" src="/static/img/imranyooo.jpg" style="display:none">
             </p>
-            <p><a href="/goto-make-qr" class="btn btn-lg btn-success" ng-href="#"><span class="glyphicon glyphicon-ok"></span>Make QR</a></p>
+            <p><a id="make-qr" class="btn btn-lg btn-success" ng-href="#"><span class="glyphicon glyphicon-ok"></span>Make QR</a></p>
         </div>        
     </div>
 </body>

@@ -31,19 +31,23 @@
             <h1>QR-HOME</h1>    
             <h3>Fill in the information and help your elderly stay safe!</h3>
             <p class="lead">
-<!--                 <img src="static/img/yeoman.png" alt="I'm Yeoman"><br>
-                Always a pleasure scaffolding your apps. -->
-<!--         <br>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">@</span>
-          <input id="name" type="text" name="name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1">
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-heading">Name</div>
+          <div class="panel-body">
+            {{name}}
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Emergency Contact</h3>
+          </div>
+          <div class="panel-body">
+            {{contact}}
+          </div>
         </div>
         <br>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">@</span>
-          <input id="emergencyContact" type="text" name="emergencyContact" class="form-control" placeholder="Contact Number" aria-describedby="basic-addon1">
-        </div>
-        <br> -->
         <img id="showqr" src="/static/img/imranyooo.jpg" style="display:none">
             </p>
             <p><a href="/goto-make-qr" class="btn btn-lg btn-success" ng-href="#"><span class="glyphicon glyphicon-ok"></span>Make QR</a></p>
