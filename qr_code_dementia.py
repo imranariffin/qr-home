@@ -16,5 +16,5 @@ def generate(name, contact):
 	im.save(name + contact + ".jpg")
 
 def read(query):
-	
+	'lalala'
 
