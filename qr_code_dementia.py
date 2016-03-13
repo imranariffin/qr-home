@@ -15,6 +15,3 @@ def generate(name, contact):
 	img = qr.make_image()
 	im.save(name + contact + ".jpg")
 
-def read(query):
-	'lalala'
-
