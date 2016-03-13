@@ -1,5 +1,6 @@
 import os
 from bottle import *
+from bottle import request as req
 
 @route('/')
 def index(section='home'):
@@ -16,6 +17,12 @@ def static(filepath):
 @get('/bower_components/<filepath:path>')
 def bower_files(filepath):
     return static_file(filepath, root='bower_components')
+
+@post('/make-qr')
+def make_qr():
+	name = req.POST.get('name')
+	emergency_contact = req.POST.get('emergencyContact')
+	return 'data'
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 1337))
