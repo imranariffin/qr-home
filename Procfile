@@ -1,1 +1,3 @@
-web: python app/app.py $PORT
+web: 
+	./bootstrap.sh
+	python app/app.py $PORT
