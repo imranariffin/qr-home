@@ -38,6 +38,10 @@ def make_qr():
 def goto_make_qr():
 	return template('make_qr')
 
+@get('/')
+def index():
+	return template('index')
+
 @get('/<query>')
 def get_info(query):
 

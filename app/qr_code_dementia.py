@@ -1,5 +1,10 @@
 import qrcode
 from pymongo import MongoClient
+from auth import MONGO_URI
+
+client = MongoClient(MONGO_URI)
+db = client.get_default_database()
+dementia = db['dementia']
 
 def generate(name, contact):
 
@@ -17,9 +22,6 @@ def generate(name, contact):
 	img.save(directory + name + contact + ".jpg")
 
 def save_in_db(name, contact):
-	client = MongoClient('localhost', 27017)
-	db = client.db
-	dementia = db.dementia
 	url = "../static/img/" + name + contact + ".jpg"
 	dementia.insert_one({
 		'name' : name,
@@ -27,9 +29,6 @@ def save_in_db(name, contact):
 		})
 
 def get_atuk(name, contact):
-	client = MongoClient('localhost', 27017)
-	db = client.db
-	dementia = db.dementia
 	atuk = dementia.find_one({
 		'name' : name,
 		'contact' : contact
@@ -38,6 +37,6 @@ def get_atuk(name, contact):
 	return atuk
 
 if __name__=="__main__":
-	# save_in_db("imranyo", "01213")
+	# save_in_db("imranyo", "01213")	
 	print get_atuk("imran", "yooo")
 	# generate("imran", "yooo")
