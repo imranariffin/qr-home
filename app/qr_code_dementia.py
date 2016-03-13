@@ -20,18 +20,29 @@ def generate(name, contact):
 		)
 	# strinput = "localhost:1337/" + name + "." + contact
 	strinput = "http://qr-home.herokuapp.com/" + name + "." + contact
+	directory = "../static/img/"
+
+	print "do not use localhost!"
+	print "saved at:"
+	print directory + name + contact + ".jpg"
 
 	qr.add_data(strinput)
 	img = qr.make_image()
-	directory = "../static/img/"
-	img.save(directory + name + contact + ".jpg")
+	img.save(name + contact + ".jpg")
+	os.system("cp ./" + name + contact + ".jpg" + " ./static/img/")	
 
 def save_in_db(name, contact):
 	url = "../static/img/" + name + contact + ".jpg"
-	dementia.insert_one({
-		'name' : name,
-		'contact' : contact
+
+	check = dementia.find_one({
+		'name' : name
 		})
+
+	if check==None:
+		dementia.insert_one({
+			'name' : name,
+			'contact' : contact
+			})
 
 def get_atuk(name, contact):
 	atuk = dementia.find_one({

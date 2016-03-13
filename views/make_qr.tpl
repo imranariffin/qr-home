@@ -54,7 +54,7 @@
           <input id="emergencyContact" type="text" name="emergencyContact" class="form-control" placeholder="Contact Number" aria-describedby="basic-addon1">
         </div>
         <br>
-        <img id="showqr" src="/static/img/imranyooo.jpg" style="display:none">
+        <img id="showqr" src="/static/img/{{image_name}}" style="display:none">
             </p>
             <p><a id="make-qr" class="btn btn-lg btn-success" ng-href="#"><span class="glyphicon glyphicon-ok"></span>Make QR</a></p>
         </div>        

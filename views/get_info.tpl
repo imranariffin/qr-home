@@ -58,7 +58,7 @@
           </div>
         </div>
         <br>
-        <img id="showqr" src="/static/img/imranyooo.jpg" style="display:none">
+        <img id="showqr" src="/static/img/" style="display:none">
             </p>
             <p><a href="/goto-make-qr" class="btn btn-lg btn-success" ng-href="#"><span class="glyphicon glyphicon-ok"></span>Make QR</a></p>
         </div>        

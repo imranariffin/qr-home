@@ -8,7 +8,7 @@ from qr_code_dementia import *
 
 @route('/')
 def index(section='home'):
-    return template('index')
+    return template('index', image_name="zzz")
 
 @error(404)
 def error404(error):
@@ -27,6 +27,11 @@ def make_qr():
 	name = str(req.POST.get('name'))
 	emergency_contact = str(req.POST.get('emergencyContact'))
 
+
+	print "name mustn't be imranyooo"
+	print name
+	print emergency_contact
+
 	generate(name, emergency_contact)
 	save_in_db(name, emergency_contact)
 
@@ -35,8 +40,8 @@ def make_qr():
 		})
 
 @get('/goto-make-qr')
-def goto_make_qr():
-	return template('make_qr')
+def goto_make_qr():	
+	return template('make_qr', image_name="zzz")
 
 @get('/')
 def index():
@@ -57,13 +62,14 @@ def get_info(query):
 
 	atuk = get_atuk(name, emergency_contact)
 	if atuk==None:
-		return template('get_info', name=None, contact=None)
+		return template('get_info', name=None, contact=None, image_name="zzz")
 	try:
 		del atuk['_id']
 	except KeyError:
 		pass
 
-	return template('get_info', name=name, contact=emergency_contact)
+	image_name = name+contact+".jpg"
+	return template('get_info', name=name, contact=emergency_contact, image_name=image_name)
 	# return json.dumps(atuk)
 
 if __name__ == '__main__':
