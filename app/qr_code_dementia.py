@@ -1,8 +1,12 @@
+import os
 import qrcode
 from pymongo import MongoClient
-from auth import MONGO_URI
+try:
+	from auth import MONGOLAB_URI
+except:
+	MONGOLAB_URI = os.environ.get('MONGOLAB_URI')
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGOLAB_URI)
 db = client.get_default_database()
 dementia = db['dementia']
 
